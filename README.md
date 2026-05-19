@@ -1,0 +1,62 @@
+# NativeLauncher
+
+### OVERVIEW
+
+NativeLauncher is a utility designed to force a hardware video switch 
+from an RTG display to the Amiga's native chipset (PAL/NTSC). 
+
+This tool was created specifically for use with PiStorm and FrameThrower 
+setups, where some non-system-friendly demos and games may not 
+correctly trigger the transition to native video output. While 
+optimized for these devices, it may also work with other RTG 
+configurations (Picasso96/CyberGraphX) and HDMI switch mods.
+
+NativeLauncher opens an OS-legal native screen before executing the 
+target file, ensuring the monitor sync is correctly handed over to the 
+Amiga's native RGB output.
+
+### USAGE
+
+1. Command Line:
+   Format:  NativeLauncher <ProgramPath>
+   Example: NativeLauncher "Work:Demos/Boing/Boing"
+
+2. File Requester:
+   Run NativeLauncher without arguments (or double-click the icon) 
+   to open a standard ASL file browser to choose your executable.
+
+### FEATURES
+
+- PiStorm/FrameThrower Optimized: Designed to prevent the video signal 
+  from becoming "stranded" on the RTG side.
+- Automatic Region Detection: Detects if the hardware is set to PAL 
+  or NTSC and opens the appropriate native screen mode.
+- Synchronous Execution: Program waits for the launched software to 
+  exit before attempting to return to the RTG Workbench.
+
+### IMPORTANT NOTES & WARNINGS
+
+- NON-CLEAN EXITS: Some legacy software and "hardware kicker" demos 
+  disable the Amiga OS entirely. In these cases, the OS code required 
+  to close the native screen and return to RTG is destroyed. 
+
+- REBOOTS: If a launched program does not exit cleanly or crashes the 
+  system, the video output may remain stuck on the native chipset. In 
+  these instances, a hardware reset (Ctrl-Amiga-Amiga) will be required 
+  to return to your RTG environment.
+
+### REQUIREMENTS
+
+- AmigaOS 3.1 or higher (Tested). 
+- Should be compatible with AmigaOS 2.04 (v37) or higher.
+- RTG System (PiStorm/FrameThrower or similar).
+
+### TECHNICAL DETAILS
+
+The tool opens a minimal 4-color backdrop screen (320x256 PAL or 
+320x200 NTSC) to initiate the hardware sync switch while consuming 
+minimal Chip RAM (approx 20 KB). 
+
+### LICENSE
+
+Provided "as-is". Use at your own risk.
