@@ -2,7 +2,7 @@ Short:        Native video switcher for RTG/PiStorm/FrameThrower
 Author:       Leigh Russ
 Assistance:   Developed with Gemini (Google), reviewed with Claude (Anthropic)
 Type:         util/misc
-Version:      1.1
+Version:      1.2
 Architecture: m68k-amigaos >= 2.04
 
 OVERVIEW
@@ -62,7 +62,14 @@ The tool opens a minimal 4-color backdrop screen (320x256 PAL or
 320x200 NTSC) to initiate the hardware sync switch while consuming 
 minimal Chip RAM (approx 20 KB). 
 
-Changes v1.1:
+Changes 
+
+v1.2
+  - Suppresses messages when running from icon
+  - Added message popup on error when running from icon
+  - EasyStruct initialised in a single step (msg passed directly)
+
+v1.1:
   - Use SystemTags() instead of Execute() for cleaner program launching
     with proper I/O handle passing and return code handling
   - Added bounds checking to commandLine buffer concatenation
