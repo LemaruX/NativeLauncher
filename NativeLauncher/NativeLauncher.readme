@@ -1,8 +1,8 @@
 Short:        Native video switcher for RTG/PiStorm/FrameThrower
 Author:       Leigh Russ
-Assistance:   Developed with Gemini (Google)
+Assistance:   Developed with Gemini (Google), reviewed with Claude (Anthropic)
 Type:         util/misc
-Version:      1.0
+Version:      1.1
 Architecture: m68k-amigaos >= 2.04
 
 OVERVIEW
@@ -61,6 +61,14 @@ TECHNICAL DETAILS
 The tool opens a minimal 4-color backdrop screen (320x256 PAL or 
 320x200 NTSC) to initiate the hardware sync switch while consuming 
 minimal Chip RAM (approx 20 KB). 
+
+Changes v1.1:
+  - Use SystemTags() instead of Execute() for cleaner program launching
+    with proper I/O handle passing and return code handling
+  - Added bounds checking to commandLine buffer concatenation
+  - AslBase now opened only when needed (no CLI argument given)
+  - Individual library open error reporting
+  - Endian assumption documented (m68k big-endian, hunk magic raw read)
 
 LICENSE
 
